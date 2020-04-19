@@ -1,0 +1,263 @@
+{
+	"version": 1,
+	"collections": [
+		{
+			"id": "512d2ac1-a563-4495-9816-d5ff2b3ce10d",
+			"name": "Test 1",
+			"description": "",
+			"auth": null,
+			"events": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ad0082b3-46dd-419e-9cdb-b959314e94af",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "97010725-3db9-435e-8918-a694b12bfe58",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"variables": [
+				{
+					"key": "URL",
+					"value": "https://reqres.in/",
+					"disabled": false
+				}
+			],
+			"order": [],
+			"folders_order": [
+				"e88be0fc-0a2d-40d0-838e-5f7249550752"
+			],
+			"protocolProfileBehavior": {},
+			"folders": [
+				{
+					"id": "e88be0fc-0a2d-40d0-838e-5f7249550752",
+					"name": "GET REQUESTS",
+					"description": "",
+					"auth": null,
+					"events": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "3f9e6b3a-04da-4a0b-8760-11e96c49718e",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "6f7e4bbd-517b-46ca-8791-febef79a4c32",
+								"type": "text/javascript",
+								"exec": [
+									"console.log(\"hello world ...\")",
+									"",
+									"let urlvar  = pm.variables.get(\"URL\")",
+									"",
+									"console.log(urlvar)",
+									"",
+									"pm.variables.set(\"app\",\"postman\")",
+									"",
+									"console.log(pm.variables.get(\"app\"))",
+									"",
+									"let globalvar = pm.globals.get(\"Env\")",
+									"",
+									"console.log(globalvar)"
+								]
+							}
+						}
+					],
+					"collection": "512d2ac1-a563-4495-9816-d5ff2b3ce10d",
+					"folder": null,
+					"order": [
+						"fb7aa9d1-d4cc-4d85-862f-63293e09ca7c",
+						"61697e73-dc8f-4ff9-8293-4da421ac9c6f"
+					],
+					"folders_order": [],
+					"protocolProfileBehavior": {},
+					"collectionId": "512d2ac1-a563-4495-9816-d5ff2b3ce10d",
+					"folderId": "e88be0fc-0a2d-40d0-838e-5f7249550752"
+				}
+			],
+			"requests": [
+				{
+					"id": "61697e73-dc8f-4ff9-8293-4da421ac9c6f",
+					"name": "TEST GET 2",
+					"url": "{{URL}}api/users/2",
+					"description": "",
+					"data": null,
+					"dataOptions": null,
+					"dataMode": null,
+					"headerData": [],
+					"method": "GET",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": [],
+					"folder": "e88be0fc-0a2d-40d0-838e-5f7249550752",
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "512d2ac1-a563-4495-9816-d5ff2b3ce10d",
+					"headers": "",
+					"pathVariables": {}
+				},
+				{
+					"id": "fb7aa9d1-d4cc-4d85-862f-63293e09ca7c",
+					"name": "test GET",
+					"url": "{{URL}}api/users?page=2",
+					"description": "",
+					"data": null,
+					"dataOptions": null,
+					"dataMode": null,
+					"headerData": [],
+					"method": "GET",
+					"pathVariableData": [],
+					"queryParams": [
+						{
+							"key": "page",
+							"value": "2",
+							"equals": true,
+							"description": "",
+							"enabled": true
+						}
+					],
+					"auth": null,
+					"events": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "2f47613a-b93c-4a03-87e5-e570062fba77",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "3c6807a8-fb80-4a60-a905-38d09aa7d135",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Your test name\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.value).to.eql(100);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"folder": "e88be0fc-0a2d-40d0-838e-5f7249550752",
+					"preRequestScript": null,
+					"tests": "pm.test(\"Status code is 200\", function () {\n    pm.response.to.have.status(200);\n});\npm.test(\"Your test name\", function () {\n    var jsonData = pm.response.json();\n    pm.expect(jsonData.value).to.eql(100);\n});",
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "512d2ac1-a563-4495-9816-d5ff2b3ce10d",
+					"headers": "",
+					"pathVariables": {}
+				}
+			]
+		},
+		{
+			"id": "e4caed1f-a033-485a-ace8-7c6c80b4a14c",
+			"name": "API",
+			"description": "",
+			"auth": null,
+			"events": null,
+			"variables": [],
+			"order": [],
+			"folders_order": [],
+			"protocolProfileBehavior": {},
+			"folders": [],
+			"requests": []
+		}
+	],
+	"environments": [
+		{
+			"id": "6f7e92a4-52e9-45c2-b38d-39f81c66f1e9",
+			"name": "PreProd",
+			"values": [
+				{
+					"key": "emailPP",
+					"value": "eve.holt@reqres.in",
+					"enabled": true
+				},
+				{
+					"key": "passwordPP",
+					"value": "pistol",
+					"enabled": true
+				},
+				{
+					"key": "endpointPP",
+					"value": "/api/register",
+					"enabled": true
+				}
+			]
+		},
+		{
+			"id": "93ed3837-e4f7-4755-8396-104b1052c147",
+			"name": "ST",
+			"values": [
+				{
+					"key": "email",
+					"value": "eve.holt@reqres.in",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "pistol",
+					"enabled": true
+				}
+			]
+		},
+		{
+			"id": "5f95b0d3-9918-454f-a085-f14d16ac1e6d",
+			"name": "TestAPI - globals",
+			"values": []
+		},
+		{
+			"id": "560e728c-dd0e-401c-be74-460d99b53656",
+			"name": "APITest - globals",
+			"values": []
+		},
+		{
+			"id": "4aaa0fbe-7a26-4613-b013-36f93c9b03f6",
+			"name": "My Workspace - globals",
+			"values": [
+				{
+					"key": "Name",
+					"value": "Madhan",
+					"enabled": true
+				},
+				{
+					"key": "Env",
+					"value": "Automation",
+					"enabled": true
+				}
+			]
+		},
+		{
+			"id": "e2f34099-8290-4d4a-aaa6-344d3dbb120e",
+			"name": "Team Workspace - globals",
+			"values": []
+		}
+	],
+	"headerPresets": [],
+	"globals": []
+}
